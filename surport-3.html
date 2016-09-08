@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技术支持-中国•锦禾</title>
+<meta name="Keywords" content="中国•锦禾">
+<meta name="Description" content="中国•锦禾">
+<link href="statics/css/common.css" rel="stylesheet">
+<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+<script type="text/javascript" src="statics/js/jquery.js"></script>
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar">
+      <div class="container clearfix">
+          <div class="tel">400 - 6130 - 528</div>
+          <div class="rnav">
+              <div class="twocode">
+                  <a href="javascript:void(0)"><span class="caret"></span></a>
+                  <div class="pubimg" style="display:none;">
+                      <div class="pubtxt">
+                          <p>关注雷肯公众号</p>
+                      </div>
+                      <div class="pubmg">
+                          <img src="statics/images/weixinlion.jpg" alt="关注公众号" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="topnav">
+      <div class="container clearfix">
+          <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
+          <ul class="menu" style="padding:30px 0;">
+              <li><a href="index.html">首页</a></li>
+              <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
+                <ul>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
+                </ul>
+              </li>
+              <li><a href="quality.html">品质体系</a></li>
+              <li><a href="surport.html">技术支持</a></li>
+              <li><a href="about.html">关于我们</a></li>
+          </ul>
+      </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+<div class="toppic"><div><img src="statics/images/columntxt-quality.png" /></div></div>
+<div class="container content">
+<div class="clearfix nav-tab">
+  <a href="surport.html">玉米联合收割机</a>
+  <a href="surport-2.html">玉米收割机</a>
+</div>
+<div class="pagedetail">
+  <h2 style="text-align:center;">常见故障及排除方法</h2><br />
+  <p>一、玉米联合收割机割台、秸秆粉碎装置不能下降</p>
+  <p>排除方法：</p>
+  <p>1、松开割台液压油管（只能松动不能拆下），如果无液压油外溢，割台依然不能下降，则可以判定是割台油缸油管接头缓降片上的节流小孔被异物堵死。把割台垫住，以防拆管时突然下降，然后再拆开割台液压油管，疏通被堵塞的缓降片节流小孔。在支垫割台不方便时，应缓慢松动割台油缸接头，使油缸的液压油缓慢外溢，至割台缓慢下降到最低位置后，再拆开缓降接头清除堵塞物。秸秆粉碎装置处理方法相同。</p>
+  <p>2、松开多路换向阀的节流调整螺钉锁母，用改锥向里拧调节螺钉，等割台能下降后，再向里拧半圈，用锁母锁住。秸秆粉碎装置处理方法相同。</p>
+  <p>二、操作系统各油缸均不工作</p>
+  <p>排除方法：</p>
+  <p>1、添加液压油到指定液面。</p>
+  <p>2、拆开多路阀的溢流阀进行清洗检查，清理杂物（注意不需松动调压部分）。</p>
+  <p>3、拆开液压油泵，检查衬套接触面磨损情况。检查卸荷片密封胶圈和两衬套密封圈的密封性，必要时更换。</p>
+  <p>4、拆开并清理分流阀，疏通阻尼小孔，检查阀芯有无划痕，必要时进行修复或更换。</p>
+  <p>三、摘穗机构经常堵塞</p>
+  <p>排除方法：</p>
+  <p>1、适当降低作业速度，减小摘穗机构的工作负荷，即可消除堵塞现象。</p>
+  <p>2、减小切草刀片间隙。</p>
+  <p>3、适当增大摘穗机构的间隙。</p>
+  <p>4、调整增大弹簧弹力，必要时更换合格的新弹簧。</p>
+  <p> 四、 茎秆切碎质量差</p>
+  <p>排除方法：</p>
+  <p>1、作业前认真调整打茬机的行距与作物行距相适应，其偏差不得大于1厘米。机器作业时要注意操作，行走时要保持直线，必要时设置指示器，防止偏移。</p>
+  <p>2、及时检查刀片，有缺失和损坏的应补齐，磨损严重的要磨刀，每班次保养时都要认真检查1次，有问题要立即处理。</p>
+  <p>3、适当降低作业速度。</p>
+  <p>4、调整传动带松紧度，防止过紧增大磨损、过松产生打滑的问题。适宜的紧度为用150牛力下压皮带中部，下沉量为1～1.5厘米，若皮带工作面有油污，可用抹布蘸少许汽油擦除。</p>
+  <p>五、转向失灵</p>
+  <p>排除方法：</p>
+  <p>在发动机熄火状态下，向任意方向转动方向盘（直至较沉重为止），然后松开方向盘。正常情况下，转动方向盘时感觉方向盘有反弹力，松开后，方向盘迅速回中立位置。如果转动方向盘时无弹力或弹力很小，松开后又不能弹回中立位置（或回去得很慢），则可断定液压转向器内的6个弹簧片至少已断了3片，应找液压专业修理人员更换液压转向器弹簧片。</p>
+</div>
+</div>
+
+<div class="container foot clearfix">
+  <dl>
+    <dt><a href="quality.html">品质技术</a></dt>
+    <dd><a href="quality.html">农装机械</a></dd>
+    <dd><a href="quality.html">动力技术</a></dd>
+    <dd><a href="quality.html">质量体系</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="download.html">下载中心</a></dt>
+    <dd><a href="download.html#about">产品说明书</a></dd>
+    <dd><a href="download.html#media">农装宣传</a></dd>
+    <dd><a href="download.html#line">动力宣传</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="recruit.html">广纳英才</a></dt>
+    <dd><a href="recruit.html">社会招聘</a></dd>
+    <dd><a href="recruit.html">校园招聘</a></dd>
+    <dd><a href="recruit.html">求职申请</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="index.html#contact">联系我们</a></dt>
+    <dd><a href="about.html">农装公司</a></dd>
+    <dd><a href="about.html">动力公司</a></dd>
+    <dd><a href="about.html">研究院</a></dd>
+    <dd><a href="about.html">进出口公司</a></dd>
+  </dl>
+  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+</div>
+<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+</body></html>

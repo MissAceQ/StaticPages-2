@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>产品展示_中国•锦禾</title>
+<meta name="Keywords" content="中国•锦禾">
+<meta name="Description" content="中国•锦禾">
+<link href="statics/css/common.css" rel="stylesheet">
+<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+<script type="text/javascript" src="statics/js/jquery.js"></script>
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="topbar">
+  <div class="container clearfix">
+    <div class="tel">400 - 6130 - 528</div>
+    <div class="rnav">
+<!-- <a href="#" data-toggle="modal" data-target="#loginModal">登录</a><code>|</code><a href="register.html">注册</a>
+<code>|</code> -->
+<div class="twocode">
+   <a href="javascript:void(0)"><span class="caret"></span></a>
+   <div class="pubimg" style="display:none;">
+    <div class="pubtxt"><p>关注雷肯公众号</p></div>
+<div class="pubmg">
+<img src="statics/images/weixinlion.jpg" alt="关注公众号" />
+</div>
+     </div>
+</div>
+<!-- <code>|</code>
+     <div class="lang">
+         <a href="javascript:void(0)">简体中文<span class="caret"></span></a>
+ <div>
+ <a href="http://www.chinaliongroup.com" target="_blank">简体中文</a><a href="http://en.chinaliongroup.com">English</a>
+ </div>
+     </div> -->
+</div>
+  </div>
+</div>
+<div class="topnav">
+    <div class="container clearfix">
+        <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
+        <ul class="menu" style="padding:30px 0;">
+            <li><a href="index.html">首页</a></li>
+            <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
+              <ul>
+                <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
+              </ul>
+            </li>
+            <li><a href="quality.html">品质体系</a></li>
+            <li><a href="surport.html">技术支持</a></li>
+            <li><a href="about.html">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+<div class="container content">
+
+  <div class="content-detail details">
+  <h4>收割机</h4>
+  <div class="prd-content">
+   <div style="margin: 0 100px;">
+   	<img src="data/products/4LZ-6shougeji.png">
+  </div>
+  </div>
+  <!--产品描述信息-->
+  <div class="prd-title">
+  <dd>型号:4LZ-6复合履带式</dd>
+  </div>
+  <div class="prd-tab">
+  <span class="onspan">产品详情</span>
+  </div>
+  <div class="prd-txt" style="padding-left: 120px;">
+    <div class="prd-lecont">
+      <div>
+        <table border="1">
+          <tr>
+            <td>割幅(M)</td>
+            <td>5.0</td>
+            <td>清选面积(M^2)</td>
+            <td>2.1</td>
+          </tr>
+          <tr>
+            <td>喂入量(KG/S)</td>
+            <td>6.0水稻</td>
+            <td>粮箱容积(M^3)</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>总损失率(%)</td>
+            <td>水稻<=3.0 小麦<=2.0</td>
+            <td>发动机功率(hp)</td>
+            <td>160</td>
+          </tr>
+          <tr>
+            <td>破损率(%)</td>
+            <td>水稻<=1.5 小麦<=1.0</td>
+            <td>发动机厂家</td>
+            <td>玉林柴油机厂</td>
+          </tr>
+          <tr>
+            <td>含杂率(%)</td>
+            <td>水稻<=2.0 小麦<=2.0</td>
+            <td>发动机型号</td>
+            <td>YC6B160Z-T20</td>
+          </tr>
+          <tr>
+            <td>最小离地间隙(M)</td>
+            <td>0.46</td>
+            <td>运输状态(长*宽*高，MM)</td>
+            <td>10920*5200*4100</td>
+          </tr>
+          <tr>
+            <td>脱粒装置型式</td>
+            <td>钉齿式</td>
+            <td>整机重量(KG)</td>
+            <td>12800</td>
+          </tr>
+          <tr>
+            <td>分离机构型式</td>
+            <td>双纵轴流分离滚筒</td>
+            <td>行走型式</td>
+            <td>履带式</td>
+          </tr>
+          <tr>
+            <td>滚筒长度*直径(M)</td>
+            <td>2.93*0.55</td>
+            <td>驱动型式</td>
+            <td>液压驱动</td>
+          </tr>
+          <tr>
+            <td>清选机构型式</td>
+            <td>风筛式</td>
+            <td>行走速度(Km/h)</td>
+            <td>1.04-25.00</td>
+          </tr>
+        </table>
+      </div><br />
+      <p>● 割台</p>
+      <p style="text-indent: 2em;">液压升降割台，具有较强的收割倒伏状作物能力。</p>
+      <p>● 过桥</p>
+      <p style="text-indent: 2em;">过桥与割台挂接形式采用快速挂接结构，短时间内快速完成割台挂接与分离工作。</p>
+      <p>● 脱粒分离</p>
+      <p style="text-indent: 2em;">高效轴流脱粒装置。采用轴流复合式锥形滚筒、梯形壳设计及可对换栅格式凹板。分离能力强、分离面积大，显著提高了脱净率，有效降低了破碎率。换玉米割台后，可实现玉米籽粒直收，再以烘干塔烘干，减少了收获环，减轻了劳作力。</p>
+      <p>● 清选方式</p>
+      <p style="text-indent: 2em;">气流组合式清选，风机与筛子组合，保证谷物清洁。</p>
+      <p>● 底盘</p>
+      <p style="text-indent: 2em;">全链轨液压驱动底盘，采用原装进口液压元件，有较强的泥地行走及爬坡能力，可适应山岭、泥泞等特殊地形。</p>
+    </div>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+
+<div class="container foot clearfix">
+  <dl>
+    <dt><a href="quality.html">品质技术</a></dt>
+    <dd><a href="quality.html">农装机械</a></dd>
+    <dd><a href="quality.html">动力技术</a></dd>
+    <dd><a href="quality.html">质量体系</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="download.html">下载中心</a></dt>
+    <dd><a href="download.html#about">产品说明书</a></dd>
+    <dd><a href="download.html#media">农装宣传</a></dd>
+    <dd><a href="download.html#line">动力宣传</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="recruit.html">广纳英才</a></dt>
+    <dd><a href="recruit.html">社会招聘</a></dd>
+    <dd><a href="recruit.html">校园招聘</a></dd>
+    <dd><a href="recruit.html">求职申请</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="index.html#contact">联系我们</a></dt>
+    <dd><a href="about.html">农装公司</a></dd>
+    <dd><a href="about.html">动力公司</a></dd>
+    <dd><a href="about.html">研究院</a></dd>
+    <dd><a href="about.html">进出口公司</a></dd>
+  </dl>
+  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+</div>
+<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+<script src="statics/lib/modernizr/modernizr-custom.js"></script>
+<link href="statics/css/mislider.css" rel="stylesheet">
+<link href="statics/css/mislider-skin-cameo.css" rel="stylesheet">
+<script src="statics/js/mislider.js"></script>
+<script>
+jQuery(function($){
+var slider = $('.mis-stage').miSlider({stageHeight:380,slidesOnStage:false,slidePosition:'center',slideStart:'mid',slideScaling:150,offsetV:-5,centerV:true,navButtonsOpacity:1});
+});
+</script>
+</body></html>

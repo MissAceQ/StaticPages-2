@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>产品展示_中国•锦禾</title>
+<meta name="Keywords" content="中国•锦禾">
+<meta name="Description" content="中国•锦禾">
+<link href="statics/css/common.css" rel="stylesheet">
+<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+<script type="text/javascript" src="statics/js/jquery.js"></script>
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="topbar">
+  <div class="container clearfix">
+    <div class="tel">400 - 6130 - 528</div>
+    <div class="rnav">
+<!-- <a href="#" data-toggle="modal" data-target="#loginModal">登录</a><code>|</code><a href="register.html">注册</a>
+<code>|</code> -->
+<div class="twocode">
+   <a href="javascript:void(0)"><span class="caret"></span></a>
+   <div class="pubimg" style="display:none;">
+    <div class="pubtxt"><p>关注雷肯公众号</p></div>
+<div class="pubmg">
+<img src="statics/images/weixinlion.jpg" alt="关注公众号" />
+</div>
+     </div>
+</div>
+<!-- <code>|</code>
+     <div class="lang">
+         <a href="javascript:void(0)">简体中文<span class="caret"></span></a>
+ <div>
+ <a href="http://www.chinaliongroup.com" target="_blank">简体中文</a><a href="http://en.chinaliongroup.com">English</a>
+ </div>
+     </div> -->
+</div>
+  </div>
+</div>
+
+<div class="topnav">
+    <div class="container clearfix">
+        <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
+        <ul class="menu" style="padding:30px 0;">
+            <li><a href="index.html">首页</a></li>
+            <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
+              <ul>
+                <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
+                <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
+              </ul>
+            </li>
+            <li><a href="quality.html">品质体系</a></li>
+            <li><a href="surport.html">技术支持</a></li>
+            <li><a href="about.html">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+<div class="container content">
+
+  <div class="content-detail details">
+    <h4>插秧机</h4>
+    <div class="prd-content">
+     <div style="margin: 0 110px;">
+     	<img style="width: 850px;" src="data/products/2ZG-10KZ-2.png">
+    </div>
+    </div>
+    <!--产品描述信息-->
+    <div class="prd-title">
+      <dd>型号:XT200系列</dd>
+    </div>
+    <div class="prd-tab">
+      <span class="onspan">产品详情</span>
+    </div>
+    <div class="prd-txt" style="padding-left: 120px;">
+      <div class="prd-lecont">
+        <div>
+          <table border="1">
+            <tr>
+              <th style="width:410px;" colspan="3">项目</th>
+              <th style="width:100px;">单位</th>
+              <th style="width:390px" colspan="3">设计值</th>
+            </tr>
+            <tr>
+              <td colspan="3">规格型号</td>
+              <td>/</td>
+              <td>2ZG-10KZ</td>
+              <td>2ZG-6</td>
+              <td>2ZG-8</td>
+            </tr>
+            <tr>
+              <td colspan="3">结构形式</td>
+              <td>/</td>
+              <td colspan="3">四轮乘坐式</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <tr><td rowspan="6">配套发动机</td></tr>
+                <tr>
+                  <td colspan="2">生产企业</td>
+                  <td>/</td>
+                  <td colspan="3">无锡五菱动力机械有限公司</td>
+                </tr>
+                <tr>
+                  <td colspan="2">牌号型号</td>
+                  <td>/</td>
+                  <td colspan="3">LJ368QA</td>
+                </tr>
+                <tr>
+                  <td colspan="2">结构型式</td>
+                  <td>/</td>
+                  <td colspan="3">3缸、水冷、4冲程</td>
+                </tr>
+                <tr>
+                  <td colspan="2">标定功率/标定转速</td>
+                  <td>KW/(r/min)</td>
+                  <td colspan="3">17/2700</td>
+                </tr>
+                <tr>
+                  <td colspan="2">燃油种类</td>
+                  <td>/</td>
+                  <td colspan="3">93#汽油</td>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">外形尺寸</td>
+              <td>mm</td>
+              <td>3500X2800X2550</td>
+              <td>3500X2200X2550</td>
+              <td>3500X2200X2550</td>
+            </tr>
+            <tr>
+              <td colspan="3">结构质量</td>
+              <td>kg</td>
+              <td>950</td>
+              <td>930</td>
+              <td>910</td>
+            </tr>
+            <tr>
+              <td colspan="3">工作行数</td>
+              <td>行</td>
+              <td>10</td>
+              <td>6</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td colspan="3">行距</td>
+              <td>mm</td>
+              <td>300/180</td>
+              <td>300</td>
+              <td>250</td>
+            </tr>
+            <tr>
+              <td colspan="3">穴距</td>
+              <td>mm</td>
+              <td>标准(110、120、130、150、160、200)宽窄(170/280、180/300)</td>
+              <td>标准(110、120、130、150、160、200)</td>
+              <td>标准(110、120、130、150、160、200)</td>
+            </tr>
+            <tr>
+              <td colspan="3">插秧深度</td>
+              <td>mm</td>
+              <td colspan="3">20~50(5级)</td>
+            </tr>
+            <tr>
+              <td colspan="3">作业速度</td>
+              <td>mm</td>
+              <td colspan="3">0~4</td>
+            </tr>
+            <tr>
+              <td colspan="3">作业小时生产率</td>
+              <td>hm^2/h</td>
+              <td>0.35~0.65</td>
+              <td>0.24~0.44</td>
+              <td>0.3~0.55</td>
+            </tr>
+            <tr>
+              <td colspan="3">单位作业量燃烧消耗量</td>
+              <td>kg^2/hm</td>
+              <td colspan="3"><=18</td>
+            </tr>
+            <tr>
+              <td rowspan="10">行走轮</td>
+              <td>
+                <tr><td rowspan="4">前轮</td></tr>
+                <tr>
+                  <tr>
+                    <td>结构型式</td>
+                    <td>/</td>
+                    <td colspan="3">无内胎轮胎</td>
+                  </tr>
+                  <tr>
+                    <td>直径</td>
+                    <td>mm</td>
+                    <td colspan="3">650</td>
+                  </tr>
+                </tr>
+              </td>
+              <td>
+                <tr><td rowspan="4">后轮</td></tr>
+                <tr>
+                  <tr>
+                    <td>结构型式</td>
+                    <td>/</td>
+                    <td colspan="3">无内胎橡胶凸爪高耳车轮</td>
+                  </tr>
+                  <tr>
+                    <td>直径</td>
+                    <td>mm</td>
+                    <td colspan="3">950</td>
+                  </tr>
+                </tr>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">插值机构型式</td>
+              <td>/</td>
+              <td colspan="3">旋转式强制插秧</td>
+            </tr>
+          </table>
+        </div><br />
+        <p>● 具有高光效行株不等距插秧方式</p>
+        <p>● 智能化仪表系统，可实现升降插一键全操控。</p>
+        <p>● 大直径车轮和机体轻型化设计，即使是烂田也能顺利作业</p>
+        <p>● 具有纵向自动调平系统和横向自动平衡系统，使插秧均匀一致。</p>
+        <p>● 左右前轮独立悬挂，振动小，作业舒适。</p>
+        <p>● 横向取苗量无障碍调节，使取苗量调节变得操控自如。</p>
+        <p>● 可进行毯苗/毯状钵苗的插植。</p>
+        <p>● 差速锁功能使车体陷入泥地打滑时锁止踏板，克服了烂田陷车困难。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="container foot clearfix">
+  <dl>
+    <dt><a href="quality.html">品质技术</a></dt>
+    <dd><a href="quality.html">农装机械</a></dd>
+    <dd><a href="quality.html">动力技术</a></dd>
+    <dd><a href="quality.html">质量体系</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="download.html">下载中心</a></dt>
+    <dd><a href="download.html#about">产品说明书</a></dd>
+    <dd><a href="download.html#media">农装宣传</a></dd>
+    <dd><a href="download.html#line">动力宣传</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="recruit.html">广纳英才</a></dt>
+    <dd><a href="recruit.html">社会招聘</a></dd>
+    <dd><a href="recruit.html">校园招聘</a></dd>
+    <dd><a href="recruit.html">求职申请</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="index.html#contact">联系我们</a></dt>
+    <dd><a href="about.html">农装公司</a></dd>
+    <dd><a href="about.html">动力公司</a></dd>
+    <dd><a href="about.html">研究院</a></dd>
+    <dd><a href="about.html">进出口公司</a></dd>
+  </dl>
+  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+</div>
+<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+<script src="statics/lib/modernizr/modernizr-custom.js"></script>
+<link href="statics/css/mislider.css" rel="stylesheet">
+<link href="statics/css/mislider-skin-cameo.css" rel="stylesheet">
+<script src="statics/js/mislider.js"></script>
+<script>
+jQuery(function($){
+var slider = $('.mis-stage').miSlider({stageHeight:380,slidesOnStage:false,slidePosition:'center',slideStart:'mid',slideScaling:150,offsetV:-5,centerV:true,navButtonsOpacity:1});
+});
+</script>
+</body></html>

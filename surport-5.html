@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技术支持-中国•锦禾</title>
+<meta name="Keywords" content="中国•锦禾">
+<meta name="Description" content="中国•锦禾">
+<link href="statics/css/common.css" rel="stylesheet">
+<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+<script type="text/javascript" src="statics/js/jquery.js"></script>
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar">
+      <div class="container clearfix">
+          <div class="tel">400 - 6130 - 528</div>
+          <div class="rnav">
+              <div class="twocode">
+                  <a href="javascript:void(0)"><span class="caret"></span></a>
+                  <div class="pubimg" style="display:none;">
+                      <div class="pubtxt">
+                          <p>关注雷肯公众号</p>
+                      </div>
+                      <div class="pubmg">
+                          <img src="statics/images/weixinlion.jpg" alt="关注公众号" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="topnav">
+      <div class="container clearfix">
+          <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
+          <ul class="menu" style="padding:30px 0;">
+              <li><a href="index.html">首页</a></li>
+              <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
+                <ul>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
+                </ul>
+              </li>
+              <li><a href="quality.html">品质体系</a></li>
+              <li><a href="surport.html">技术支持</a></li>
+              <li><a href="about.html">关于我们</a></li>
+          </ul>
+      </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+<div class="toppic"><div><img src="statics/images/columntxt-quality.png" /></div></div>
+<div class="container content">
+<div class="clearfix nav-tab">
+  <a href="surport.html">玉米联合收割机</a>
+  <a href="surport-2.html">玉米收割机</a>
+</div>
+<div class="pagedetail">
+  <h2 style="text-align:center;">安全使用规范</h2><br />
+  <p>在玉米收获季节即将到来之际，河北雷肯农业机械有限公司提醒广大玉米联合收割机用户，切记安全使用规范，确保人身、财产安全。</p>
+  <p>1、机组驾驶人员必须具有农机管理部门核发的驾驶证，经过玉米收获机操作的学习和培训，并具有田间作业的经验。</p>
+  <p>2、与联合收获机配套的拖拉机必须经农机安全监理部门年审合格，技术状况良好。使用过的玉米收获机必须经过全面的检修保养。</p>
+  <p>3、工作时机组操作人员只限驾驶员1人，严禁超负荷作业，禁止任何人员站在切碎器和割台等附近。</p>
+  <p>4、拖拉机启动前必须将变速手柄及动力输出手柄置于空挡位置。</p>
+  <p>5、机组起步、接合动力、转弯、倒车时，要先鸣喇叭，观察机组附近状况，并提醒多余人员离开。</p>
+  <p>6、工作期间驾驶员不得饮酒，不允许在过度疲劳、睡眠不足等情况下操作机组。</p>
+  <p>7、作业中应注意避开石头块、树桩、沟渠等障碍，以免造成机组故障。</p>
+  <p>8、工作中驾驶人员应随时观察、倾听机组各部位的运行情况，如发现异常，立即停车排除故障。</p>
+  <p>9、保持各部位防护罩完好、有效，严禁拆卸护罩。</p>
+  <p>10、经常检查切碎器锤爪完好情况，发现残缺应及时更换。</p>
+  <p>11、严禁机组在工作和未完全停止运转前清除杂草、检查、保养、排除故障等。必须在发动机熄火机组停止运行后进行检修。检修摘穗辊、拨禾链、切碎器、开式齿轮、链轮和链条等传动和运动部位的故障时，严禁转动传动机构。</p>
+</div>
+</div>
+
+<div class="container foot clearfix">
+  <dl>
+    <dt><a href="quality.html">品质技术</a></dt>
+    <dd><a href="quality.html">农装机械</a></dd>
+    <dd><a href="quality.html">动力技术</a></dd>
+    <dd><a href="quality.html">质量体系</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="download.html">下载中心</a></dt>
+    <dd><a href="download.html#about">产品说明书</a></dd>
+    <dd><a href="download.html#media">农装宣传</a></dd>
+    <dd><a href="download.html#line">动力宣传</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="recruit.html">广纳英才</a></dt>
+    <dd><a href="recruit.html">社会招聘</a></dd>
+    <dd><a href="recruit.html">校园招聘</a></dd>
+    <dd><a href="recruit.html">求职申请</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="index.html#contact">联系我们</a></dt>
+    <dd><a href="about.html">农装公司</a></dd>
+    <dd><a href="about.html">动力公司</a></dd>
+    <dd><a href="about.html">研究院</a></dd>
+    <dd><a href="about.html">进出口公司</a></dd>
+  </dl>
+  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+</div>
+<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+</body></html>

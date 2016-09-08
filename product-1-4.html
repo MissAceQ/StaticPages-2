@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>产品展示_中国•锦禾</title>
+<meta name="Keywords" content="中国•锦禾">
+<meta name="Description" content="中国•锦禾">
+<link href="statics/css/common.css" rel="stylesheet">
+<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+<script type="text/javascript" src="statics/js/jquery.js"></script>
+<!--[if lt IE 9]>
+<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+  <div class="topbar">
+      <div class="container clearfix">
+          <div class="tel">400 - 6130 - 528</div>
+          <div class="rnav">
+              <div class="twocode">
+                  <a href="javascript:void(0)"><span class="caret"></span></a>
+                  <div class="pubimg" style="display:none;">
+                      <div class="pubtxt">
+                          <p>关注雷肯公众号</p>
+                      </div>
+                      <div class="pubmg">
+                          <img src="statics/images/weixinlion.jpg" alt="关注公众号" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="topnav">
+      <div class="container clearfix">
+          <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
+          <ul class="menu" style="padding:30px 0;">
+              <li><a href="index.html">首页</a></li>
+              <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
+                <ul>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
+                  <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
+                </ul>
+              </li>
+              <li><a href="quality.html">品质体系</a></li>
+              <li><a href="surport.html">技术支持</a></li>
+              <li><a href="about.html">关于我们</a></li>
+          </ul>
+      </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+<div class="container content">
+
+  <div class="content-detail details">
+  <h4>拖拉机</h4>
+  <div class="prd-content">
+   <div style="margin: 0 100px;">
+   	<img src="data/products/XT400tuolaji.png">
+  </div>
+  </div>
+  <!--产品描述信息-->
+  <div class="prd-title">
+  <dd>型号:LN4100系列</dd>
+  </div>
+  <div class="prd-tab">
+  <span class="onspan">产品详情</span><span>规格</span>
+  </div>
+  <div class="prd-txt" style="padding-left: 120px;">
+    <div class="prd-lecont">
+      <div>
+        <table border="1">
+          <tr>
+            <td>拖拉机型号</td>
+            <td>XT400/XT454</td>
+            <td>轮距</td>
+            <td>1200mm</td>
+          </tr>
+          <tr>
+            <td>外形尺寸</td>
+            <td>3230*1460*1900</td>
+            <td>前</td>
+            <td>6.00-16/6.50-16</td>
+          </tr>
+          <tr>
+            <td>发动机型号</td>
+            <td>JD4100四缸</td>
+            <td>后</td>
+            <td>11.2-24/11.2-24</td>
+          </tr>
+          <tr>
+            <td>类型</td>
+            <td>立式柴油机</td>
+            <td>轮式</td>
+            <td>4*4</td>
+          </tr>
+          <tr>
+            <td>转向</td>
+            <td>机械转向/液压转向</td>
+            <td>完全重量(KG)</td>
+            <td>1450</td>
+          </tr>
+          <tr>
+            <td>冷却系统</td>
+            <td>水冷</td>
+            <td>牵引力(MT)</td>
+            <td>8.8</td>
+          </tr>
+          <tr>
+            <td>缸数</td>
+            <td>4</td>
+            <td>驱动</td>
+            <td>2驱/4驱</td>
+          </tr>
+          <tr>
+            <td>缸径直径(MM)</td>
+            <td>100</td>
+            <td>类型</td>
+            <td>液压</td>
+          </tr>
+          <tr>
+            <td>活塞行程</td>
+            <td>105</td>
+            <td>类型</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>动力输出转速(r/min)</td>
+            <td>540</td>
+            <td>后</td>
+            <td>2</td>
+          </tr>
+        </table>
+      </div><br />
+      <p style="text-indent: 2em;">邢拖牌XT400系列拖拉机采用流线型外罩外形设计，整体前翻，仪表盘整体拉伸成型，独立仪表盘配备，既结实美观又操作方便，维修容易，采用汽车式转向器，操作轻便，直线行驶性好。采用新型转向梯形设计，加强了零部件强度，提高了安全性能。设计了新型座椅和新型坐垫，使驾乘人员更舒适。设计了电启动装置，使拖拉机在俄罗斯高寒地区也可以顺利启动。选配了光亮前大灯和月牙型前转向灯，改善了夜间作业条件，整体更加美观大方。</p>
+      <p style="text-indent: 2em;">XT454除具有前三种机型的特性外，还具有较好的牵引附着性能和越野性能，在坡底、土质粘重地、潮湿地及沙土地进行作业和农田基本建设方面比两轮驱动的轮式拖拉机具有更好的适应性。</p>
+    </div>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+
+<div class="container foot clearfix">
+  <dl>
+    <dt><a href="quality.html">品质技术</a></dt>
+    <dd><a href="quality.html">农装机械</a></dd>
+    <dd><a href="quality.html">动力技术</a></dd>
+    <dd><a href="quality.html">质量体系</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="download.html">下载中心</a></dt>
+    <dd><a href="download.html#about">产品说明书</a></dd>
+    <dd><a href="download.html#media">农装宣传</a></dd>
+    <dd><a href="download.html#line">动力宣传</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="recruit.html">广纳英才</a></dt>
+    <dd><a href="recruit.html">社会招聘</a></dd>
+    <dd><a href="recruit.html">校园招聘</a></dd>
+    <dd><a href="recruit.html">求职申请</a></dd>
+  </dl>
+  <dl>
+    <dt><a href="index.html#contact">联系我们</a></dt>
+    <dd><a href="about.html">农装公司</a></dd>
+    <dd><a href="about.html">动力公司</a></dd>
+    <dd><a href="about.html">研究院</a></dd>
+    <dd><a href="about.html">进出口公司</a></dd>
+  </dl>
+  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+</div>
+<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+<script src="statics/lib/modernizr/modernizr-custom.js"></script>
+<link href="statics/css/mislider.css" rel="stylesheet">
+<link href="statics/css/mislider-skin-cameo.css" rel="stylesheet">
+<script src="statics/js/mislider.js"></script>
+<script>
+jQuery(function($){
+var slider = $('.mis-stage').miSlider({stageHeight:380,slidesOnStage:false,slidePosition:'center',slideStart:'mid',slideScaling:150,offsetV:-5,centerV:true,navButtonsOpacity:1});
+});
+</script>
+</body></html>
