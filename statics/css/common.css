@@ -49,9 +49,9 @@ ul,ol,li{list-style:none;}
 /*.topnav .logo img{padding:5px 0;}*/
 .topnav{height: 650px;position: relative;}
 .topnav .container{background: url("../images/jinghe-firstpage_01.jpg");background-size: cover;height: 100%;z-index: -1;}
-.topnav .container .logopart{width: 120px;display: inline-block;height: 50px;line-height: 50px;background-color: #de3f3f;color: #FFFFFF;}
-.topnav .container .logopart #toplogo{font-size: 26px;text-align: center;}
-.topnav .container .logopart #toplogo2{font-size: 10px;display: inline-block;}
+.topnav .container .logopart{width: 150px;display: inline-block;height: 50px;background-color: #de3f3f;color: #FFFFFF;}
+.topnav .container .logopart #toplogo{font-size: 26px;text-align: center;vertical-align: text-top;display: inline-block;margin-top: 5px;}
+.topnav .container .logopart #toplogo2{-webkit-text-size-adjust:none;font-size: 8px;display: inline-block;}
 .topnav .container .part1{position: relative;color: #ffffff;left: 300px;top: 250px;}
 .topnav .container .part1 .part1-title{font-size: 46px;}
 .topnav .container .part1 .part1-text{font-size: 14px;letter-spacing: 1px;width: 600px;padding-bottom: 40px;}
@@ -393,11 +393,42 @@ ul,ol,li{list-style:none;}
 .itit1 h4{color:#fff;padding:30px 0;font-size:18px;font-weight:normal;}
 .itit1 h4::before,.itit1 h4::after{background:#efb14a;content:"";display:inline-block;height:20px;margin-right:25px;margin-left:25px;margin-bottom:-3px;position:relative;top:2px;width:3px;}
 
-/*product recommend*/
-.products-recommend{background-color: #de3f3f;height: 400px;width:1200px;margin: auto;color: #FFFFFF;}
-.products-recommend .recommendContainer{width: 60%;margin: auto;}
-.products-recommend .firstPart{position: relative;height: 100px;border: 1px solid black;}
-.products-recommend .firstPart .title{font-size: 28px;margin-top: 50px;display: inline-block;}
+/*首页产品展示*/
+.products-recommend{position: relative;background-color: #de3f3f;height: 480px;width:1200px;margin: auto;color: #FFFFFF;}
+.products-recommend .recommend-container{width: 60%;margin: auto;}
+.products-recommend .first-part{position: relative;height: 110px;}
+.products-recommend .first-part .first-part-title{font-size: 28px;margin-top: 40px;display: inline-block;}
+.products-recommend .first-part .product-more{font-size: 12px;display: inline-block;position: absolute;right: 0;top: 20px;}
+.products-recommend .left-part{width: 250px;float: left;}
+.products-recommend .left-part .left-dcp a{display: block;margin-bottom: 10px;height: 80px;padding-left: 20px;padding-top: 10px;}
+.products-recommend .left-part .left-dcp a:hover{background-color: #D02020;}
+.products-recommend .left-part .left-dcp .left-part-title{color: #FFFFFF;font-size: 20px;}
+.products-recommend .left-part .left-dcp .left-part-text{color: #FFFFFF;font-size: 10px;}
+.products-recommend .right-part{border: 1px solid black;display: inline-block;background:url("");}
+
+/*首页最新资讯*/
+.news-trend{width: 1200px;margin: auto;background-color: #2D2D2D;}
+.news-container{width: 60%;margin: auto;height: 300px;}
+.news-container .news-first-part{height: 70px;position: relative;margin-bottom: 20px;}
+.news-container .news-first-part .first-part-text{position: absolute;bottom: 0;height: 20px;line-height: 20px;}
+.news-container .news-first-part .first-part-text .news-left{display: inline-block;margin: 0 90px;}
+.news-container .news-first-part .first-part-text .news-right{display: inline-block;margin: 0 90px;}
+.news-container .news-first-part .first-part-text > span{display: inline-block;width: 100px;height: 5px;border-top: 1px solid #aaa;}
+.news-container .news-content{position: relative;}
+.news-container .news-content .news-part{display: inline-block;width: 200px;margin: 25px 18px;}
+.news-container .news-content .news-part:hover{color: #FFFFFF;}
+.news-container .news-content .news-part .news-title{font-size: 20px;color: #FFFFFF;padding: 5px 0;display: block;}
+.news-container .news-content .news-part .news-title:hover{border-bottom: 2px solid #de3f3f;}
+.news-container .news-content .news-part .news-text{font-size: 12px;color: #727272;padding-top: 15px;display: block;line-height: 20px;}
+.news-container .news-content .news-part .news-text:hover{color: #FFFFFF;border-top: 2px solid #de3f3f;}
+
+/*联系我们*/
+.contact-us{position: relative;width: 1200px;height: 270px;background-color: #de3f3f;margin: auto;}
+.contact-us .contact-first{text-align: center;height: 80px;}
+.contact-us .contact-first strong{font-size: 26px;color: #FFFFFF;}
+.contact-us .contact-content{border: 1px solid #aaa;width: 60%;margin: auto;height: 150px;display: flex;justify-content: center;align-items: baseline;}
+.contact-us .contact-content ul li{border: 1px solid #aaa;width: 170px;height: 150px;display: inline-block;}
+/*.contact-us .contact-content dl{border: 1px solid #aaa;display: inline-block;width: 170px;height: 150px;}*/
 
 /*.row2{background:#eee url(../images/bakground1.jpg) repeat-x 0 0;color:#fff;}
 .row2 ul{padding-left:80px;padding-top:20px;}
