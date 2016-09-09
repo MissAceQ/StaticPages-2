@@ -423,12 +423,12 @@ ul,ol,li{list-style:none;}
 .news-container .news-content .news-part .news-text:hover{color: #FFFFFF;border-top: 2px solid #de3f3f;}
 
 /*联系我们*/
-.contact-us{position: relative;width: 1200px;height: 270px;background-color: #de3f3f;margin: auto;}
-.contact-us .contact-first{text-align: center;height: 80px;}
+.contact-us{position: relative;width: 1200px;height: 270px;background-color: #de3f3f;margin: auto;padding-top: 30px;}
+.contact-us .contact-first{text-align: center;height: 50px;}
 .contact-us .contact-first strong{font-size: 26px;color: #FFFFFF;}
-.contact-us .contact-content{border: 1px solid #aaa;width: 60%;margin: auto;height: 150px;display: flex;justify-content: center;align-items: baseline;}
-.contact-us .contact-content ul li{border: 1px solid #aaa;width: 170px;height: 150px;display: inline-block;}
-/*.contact-us .contact-content dl{border: 1px solid #aaa;display: inline-block;width: 170px;height: 150px;}*/
+.contact-us .contact-content{border: 1px solid #aaa;width: 60%;margin: auto;height: 150px;}
+.contact-us .contact-content ul li{border: 1px solid #aaa;width: 179px;height: 150px;display: inline-block;float: left;}
+.contact-us .contact-content ul li img{width: 50px;}
 
 /*.row2{background:#eee url(../images/bakground1.jpg) repeat-x 0 0;color:#fff;}
 .row2 ul{padding-left:80px;padding-top:20px;}
@@ -466,6 +466,7 @@ ul,ol,li{list-style:none;}
 .row4 .row4_r li dl dd{font-size:12px;line-height:25px}
 
 .row5{padding:50px 0 30px 120px;background:#fff url(../images/yellowbar.png) repeat-y 40px 0;color:#333;}
+.row5 .row5-title{text-align: center;font-size: }
 .row5 .row_1{float:left;width:300px;margin:0 50px 0 15px;padding:22px 15px 10px 25px;background:#393939;border-top:#efb14a 4px solid;font-size:13px;}
 .row5 .row_1 dt{color:#efb14a;margin-bottom:10px;font-size:15px;}
 .row5 .row_1 dt::before,.row5 .row_1 dt::after{background:#fff;content:"";display:inline-block;height:20px;margin-right:5px;margin-left:5px;margin-bottom:-3px;position:relative;top:2px;width:2px;}
