@@ -1,390 +1,351 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>产品展示-中国•锦禾</title>
-<meta name="Keywords" content="中国•锦禾">
-<meta name="Description" content="中国•锦禾">
-<link href="statics/css/common.css" rel="stylesheet">
-<script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
-<link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
-<script type="text/javascript" src="statics/js/jquery.js"></script>
-<!--[if lt IE 9]>
-<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>中国•锦禾</title>
+  <meta name="Keywords" content="中国•锦禾">
+  <meta name="Description" content="中国•锦禾">
+  <link href="statics/css/common.css" rel="stylesheet">
+  <script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+  <link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+  <script type="text/javascript" src="statics/js/jquery.js"></script>
+  <script src="statics/js/jquery.min.js"></script>
+  <script src="statics/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-  <div class="topbar">
-      <div class="container clearfix">
-          <div class="tel">400 - 6130 - 528</div>
-          <div class="rnav">
-              <div class="twocode">
-                  <a href="javascript:void(0)"><span class="caret"></span></a>
-                  <div class="pubimg" style="display:none;">
-                      <div class="pubtxt">
-                          <p>关注雷肯公众号</p>
-                      </div>
-                      <div class="pubmg">
-                          <img src="statics/images/weixinlion.jpg" alt="关注公众号" />
-                      </div>
-                  </div>
-              </div>
+  <div class="container topnav" style="height:500px;">
+    <div class="container topnav-background">
+            <img src="statics/images/jinghe-productpage_01.jpg" alt="background">
+    </div>
+      <div class="container top-part clearfix">
+
+        <div class="logopart">
+          <span id="toplogo">锦禾</span>
+          <span id="toplogo2">TM</span>
+        </div>
+        <ul class="menu" style="padding:10px 0;">
+          <li><a href="index.html">首页</a></li>
+          <li id="productList">
+            <a href="products.html">产品<span class="caret"></span></a>
+            <ul>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">收割机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">辣椒收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">拖拉机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">玉米收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">插秧机</a></li>
+            </ul>
+          </li>
+          <li><a href="service.html">综合服务<span class="caret"></span></a></li>
+          <li><a href="quality.html">品质技术</a></li>
+          <li><a href="cooperate.html">合作共赢<span class="caret"></span></a></li>
+          <li><a href="news.html">最新资讯<span class="caret"></span></a></li>
+          <li><a href="about.html">关于我们<span class="caret"></span></a></li>
+        </ul>
+        <section class="part1">
+          <p class="part1-title">China•JingHe</p>
+          <p class="part1-text">
+              Wisdom Agriculture,Intelligent agricultural
+          </p>
+          <a href="#" class="part1-btm">more+</a>
+        </section>
+      </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#productList").mouseover(function() {
+            $(".product").show();
+        });
+        $("#productList").mouseout(function() {
+            $(".product").hide();
+        });
+
+        $(".prdlist").children().children('dt').mouseover(function() {
+            $(this).siblings().removeClass('oncur');
+            $(this).addClass('oncur');
+            var id = $(this).attr("date");
+            seeproduct(id);
+        });
+
+        $('.twocode').hover(function() {
+            var _twocode = $('.pubimg').attr('style');
+            if ($('.pubimg').attr('style') == 'display:none;') {
+                $('.pubimg').attr('style', 'display:block;');
+            } else {
+                $('.pubimg').attr('style', 'display:none;');
+            }
+            return false;
+        });
+    });
+
+    function onload() {
+        $(".prdlist").children().children('dt').first().addClass('oncur');
+        var id = $(".prdlist").children().children('dt').first().attr("date");
+        seeproduct(id);
+    }
+
+    function seeproduct(id) {
+        var data = "cid=" + id;
+        $.getJSON("ajaxrequest.php", data, function(json) {
+            $(".prdcontent").html("");
+            var txtList = "";
+            $.each(json, function(i, item) {
+                txtList += "<div class='prdset'>" +
+                    "<h4 title='" + item.title + "'>" + item.title + "</h4>" +
+                    "<div class='prdset-model'>型号:<span>" + item.promodel + "</span></div>" +
+                    "<div class='prdimg'><a href='product-" + item.id + ".html' title='" + item.title + "'><img src='" + item.picurl + "'></a></div></div>";
+            });
+            $(".prdcontent").html(txtList);
+        });
+    }
+  </script>
+
+<div class="container product-content">
+  <div style="height: 70px;background-color: #de3f3f;position:relative;">
+    <div class="content-top">
+      <div class="first-part-title">
+        <span><strong style="color:#FFFFFF;font-size:24px;">Product </strong></span>
+        <span style="color:#FFFFFF;font-size:20px;">Description</span>
+      </div>
+      <div class="product-more">
+          <a href="products.html"><strong style="color:black;font-size:10px;">VIEW</strong></a>
+          <a href="products.html"><strong style="color:#FFFFFF;font-size:10px;">ALL+</strong></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-wrap" id="prddetails">
+    <div class="product-left-part">
+        <ul>
+            <li class="product-left-dcp row1">
+              <a href="javascript:void(0)" class="left-dcp">Product Categories</a>
+            </li>
+            <li class="product-left-dcp rows row-grain">
+              <a href="javascript:void(0)" class="left-dcp">Grain Harvester</a>
+            </li>
+            <li class="product-left-dcp rows row-pepper">
+              <a href="javascript:void(0)" class="left-dcp">Pepper Harvesting Machine</a>
+            </li>
+            <li class="product-left-dcp rows">
+              <a href="javascript:void(0)" class="left-dcp3">Tractor</a>
+              <a href="javascript:void(0)" class="drop-part"><img src="statics/images/drop-arrow.png" alt="drop-arrow" /></a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT200">
+              <a href="javascript:void(0)" class="left-dcp3">XT200</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT220">
+              <a href="javascript:void(0)" class="left-dcp3">XT220</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT250">
+              <a href="javascript:void(0)" class="left-dcp3">XT250</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT254">
+              <a href="javascript:void(0)" class="left-dcp3">XT253</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT300">
+              <a href="javascript:void(0)" class="left-dcp3">XT300</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT400">
+              <a href="javascript:void(0)" class="left-dcp3">XT400</a>
+            </li>
+            <li class="product-left-dcp rows4 row-XT404">
+              <a href="javascript:void(0)" class="left-dcp3">XT404</a>
+            <li class="product-left-dcp rows row-XT454">
+              <a href="javascript:void(0)" class="left-dcp3">XT454</a>
+            </li>
+            <li class="product-left-dcp rows4 row-3806">
+              <a href="javascript:void(0)" class="left-dcp3">3806</a>
+            </li>
+            <li class="product-left-dcp rows row-corn">
+              <a href="javascript:void(0)" class="left-dcp3">Corn Harvester</a>
+            </li>
+            <li class="product-left-dcp rows row-rice">
+              <a href="javascript:void(0)" class="left-dcp3">Rice Transplanter</a>
+            </li>
+        </ul>
+    </div>
+    <div class="product-right-part">
+      <div class="product-right-bottom">
+        <div class="prd-description" id="dsp-grain">
+          <img src="statics/images/product/grain.jpg" alt="中国•锦禾" class="right-dcp-img right-img-grain">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About Grain HarvesterGrain</strong></p>
+            <p class="prd-dsp-text">Grain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain HarvesterGrain Harvester</p>
           </div>
+        </div>
+        <div class="prd-description" id="dsp-pepper" style="display:none;">
+          <img src="statics/images/product/pepper.jpg" alt="中国•锦禾" class="right-dcp-img right-img-pepper">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About Pepper Harvesting</strong></p>
+            <p class="prd-dsp-text">4JZ-2300型辣椒收获机设计结构紧凑、功能齐全、操作方便、机动灵活、适应大小地块作业；选用独特全幅式采摘台，作业时不受作物行距限制，真正实现了不对行收获辣椒的愿望；椒箱容积大、卸椒高度高，椒箱装满高度高、液压转翻、能大大减小卸料次数，生产效率高；采摘台采用橡胶弹齿式采摘台，更加适应不同品质的辣椒收获；适应性强、摘净率高、损失率低、破碎率低、效率高；覆盖件经酸洗磷化、阴极电泳底漆处理，防腐蚀、防老化、不褪色；机具一次作业即可完成采摘、输送、集箱、装车，机具的适应性和工作效率高，可满足不同种植农艺的收获要求。</p>
+          </div>
+          </div>
+        <div class="prd-description" id="dsp-XT200" style="display:none;">
+          <img src="statics/images/product/200.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT200">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT200</strong></p>
+            <p class="prd-dsp-text">XT250功率大、油耗低、牵引力大、作业档次多(共有16+4个档)，并装有按国际标准制造的后置动力输出轴。因此该拖拉机的作业性能好，生产效率高，用途广泛，能有效地进行各种田间作业(耕地、耙地、旋耕、播种、收割、田间管理、开沟等)、固定作业(抽水、喷灌、发电、磨面、碾米)及运输作业等。能在较小地块上作业和在较窄的道路上行驶，可满足平原、丘陵、牧区、菜园、果园的机械化作业要求。东方红-250机型还采用两项专利技术(新型流线型专利机罩和专利前照灯组件)，可有效杜绝假冒东方红小拖现象，切实维护用户利益。</p>
+          </div>
+          </div>
+        <div class="prd-description" id="dsp-XT220" style="display:none;">
+          <img src="statics/images/product/220.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT220">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT220</strong></p>
+            <p class="prd-dsp-text">XT220XT220XT220XT220XT220XT220XT220XT220XT220XT220XT220XT220XT220XT220</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT250" style="display:none;">
+          <img src="statics/images/product/250.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT250">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT250</strong></p>
+            <p class="prd-dsp-text">XT250XT250XT250XT250XT250XT250XT250XT250 XT250XT250XT250XT250XT250XT250XT250</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT254" style="display:none;">
+          <img src="statics/images/product/254.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT254">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT253</strong></p>
+            <p class="prd-dsp-text">XT253XT253XT253XT253XT253XT253XT253XT253 XT253XT253XT253XT253XT253XT253</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT300" style="display:none;">
+          <img src="statics/images/product/300.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT300">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT300</strong></p>
+            <p class="prd-dsp-text">XT300XT300XT300XT300XT300XT300XT300XT300XT300 XT300XT300XT300XT300XT300XT300XT300</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT400" style="display:none;">
+          <img src="statics/images/product/400.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT400">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT400</strong></p>
+            <p class="prd-dsp-text">XT400XT400XT400XT400XT400XT400XT400XT400 XT400XT400XT400XT400XT400</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT404" style="display:none;">
+          <img src="statics/images/product/404.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT404">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT404</strong></p>
+            <p class="prd-dsp-text">XT404拖拉机采用直喷节能柴油机，油耗低，扭矩储备大，动力经济性好，排放达到国Ⅱ标准。8＋4啮合套换挡，加强型底盘，挡位分布合理，性能可靠。末端传动采用行星齿轮减速机构，结构紧凑，传动比大，承载均匀，使用寿命长。采用湿式、盘式、自增力制动器，制动平稳可靠，效能高。多挡动力输出，与机具匹配性好，可满足多种作业要求。框架式驾驶室，密封性好，驾乘安全舒适。流线型外观设计，造型优美大方，作业视野好。</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-XT454" style="display:none;">
+          <img src="statics/images/product/454.jpg" alt="中国•锦禾" class="right-dcp-img right-img-XT454">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About XT454</strong></p>
+            <p class="prd-dsp-text">XT454XT454XT454XT454XT454XT454XT454 XT454XT454XT454XT454XT454XT454XT454XT454XT454XT454XT454XT454</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-3806" style="display:none;">
+          <img src="statics/images/product/3806.jpg" alt="中国•锦禾" class="right-dcp-img right-img-3806">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About 3806</strong></p>
+            <p class="prd-dsp-text">380638063806380638063806380638063806 380638063806380638063806</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-corn" style="display:none;">
+          <img src="statics/images/product/corn.jpg" alt="中国•锦禾" class="right-dcp-img right-img-corn">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About Corn Harvester</strong></p>
+            <p class="prd-dsp-text">4YZB-4型玉米联合收获机是国内先进的集摘穗、剥皮、秸杆还田为一体的摘穗型玉米专用联合收获机。该机动力强劲，高效收获，操作简单，性能可靠，籽粒、果穗损失率低，籽粒破碎少，苞叶剥净率高。适应全国各地区的玉米种植区域。行距为520mm，行距适应450—600mm的种植特点，割幅2100mm，收获行数4行；配124马力加中冷，带涡轮增压。2米宽还田机。机器采用新型拉茎板式摘穗装置，收获效率高，果穗损失率小。动力充足，中置式粉碎机，动力传输合理，轻松完成秸杆还田。整机结构紧凑合理，动力匹配强劲，质量稳定可靠，工作效率高，每小时可收获9—11亩。</p>
+          </div>
+        </div>
+        <div class="prd-description" id="dsp-rice" style="display:none;">
+          <img src="statics/images/product/rice.jpg" alt="中国•锦禾" class="right-dcp-img right-img-rice">
+          <div class="prd-description-text">
+            <p class="prd-dsp-title"><strong>About Rice Transplanter</strong></p>
+            <p class="prd-dsp-text">Rice TransplanterRice TransplanterRice TransplanterRice TransplanterRice TransplanterRice Transplanter</p>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
-  <div class="topnav">
-      <div class="container clearfix">
-          <a class="logo" href="javascript:void(0)"><img src="statics/images/logo.png" /></a>
-          <ul class="menu" style="padding:30px 0;">
-              <li><a href="index.html">首页</a></li>
-              <li id="productList"><a href="products.html">产品<span class="caret"></span></a>
-                <ul>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat1">插秧机</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat2">拖拉机</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat3">土壤耕作机械</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat4">收割机</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat5">收获机</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat6">玉米收割机</a></li>
-                  <li><a style="padding: 0 10px;" href="products.html#mcat7">无人植保机</a></li>
-                </ul>
-              </li>
-              <li><a href="quality.html">品质体系</a></li>
-              <li><a href="surport.html">技术支持</a></li>
-              <li><a href="about.html">关于我们</a></li>
-          </ul>
-      </div>
-  </div>
-<script type="text/javascript">
-  $(document).ready(function(){
-  $("#productList").mouseover(function(){
-  $(".product").show();
-  });
-  $("#productList").mouseout(function(){
-  $(".product").hide();
-  });
-
-  $(".prdlist").children().children('dt').mouseover(function(){
-  $(this).siblings().removeClass('oncur');
-  $(this).addClass('oncur');
-  var id = $(this).attr("date");
-  seeproduct(id);
-  });
-
-  $('.twocode').hover(function(){
-           var _twocode = $('.pubimg').attr('style');
-  if($('.pubimg').attr('style') == 'display:none;'){
-          $('.pubimg').attr('style','display:block;');
-  }else{
-       $('.pubimg').attr('style','display:none;');
-  }
-   return false;
-  });
-  });
-  function onload(){
-  $(".prdlist").children().children('dt').first().addClass('oncur');
-  var id = $(".prdlist").children().children('dt').first().attr("date");
-  seeproduct(id);
-  }
-  function seeproduct(id){
-  var data = "cid="+id;
-  $.getJSON("ajaxrequest.php",data,function(json){
-  $(".prdcontent").html("");
-  var txtList = "";
-  $.each(json, function(i,item) {
-    txtList +="<div class='prdset'>"+
-            			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
-            			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
-            			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
-  });
-  $(".prdcontent").html(txtList);
-  });
-  }
-</script>
-<div class="container content">
-<!--滚动banner-->
-<div id="carousel-focus" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-
-  <li data-target="#carousel-focus" data-slide-to="0"  class="active"></li>
-
-  <li data-target="#carousel-focus" data-slide-to="1"></li>
-
-
-  </ol>
-  <div class="carousel-inner" role="listbox">
-
-  <div class="item active"><img src="data/das/160330030752xsudur.jpg" alt="4.6A升级级版"><div class="carousel-caption"></div></div>
-
-  <div class="item"><a href="#" target="_blank"><img src="data/das/160203100925pxjarr.jpg" alt="中国•锦禾"></a><div class="carousel-caption"></div></div>
-
-
-  </div>
-  <a class="left carousel-control" href="#carousel-focus" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#carousel-focus" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><span class="sr-only">Next</span></a>
 </div>
-<!--banner结束-->
-
-<div class="product-wrap">
-<div class="list-icon"><img src="statics/images/product/icon2.jpg" /></div>
-<div class="list-title"><h4>产品分类</h4></div>
-
-<a name="mcat1" id="mcat1"></a>
-<div class="clearfix list-item list-iteml">
-<div class="catpic"><img src="data/procat/160317112503ayswyx.png" alt="拖拉机" /></div>
-<div class="detail">
-<h2>拖拉机</h2>
-<div class="intro">雷肯品牌产品有半喂入、全喂入收割机、插秧机、旋耕机等，畅销国内众多的市场</div>
-<div class="slide">
-<div id="carousel-product2" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox" style="width:110%">
-  <ul class="item active">
-    <li style="margin:0 1px;">
-      <img src="data/products/3806tuolaji-1.png" />
-      <div>3806系列</div>
-      <p>3806系列3806系列3806系列3806系列3806系列</p>
-      <a href="product-1-1.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/XT200tuolaji.png" />
-      <div>XT200系列</div>
-      <p>XT200系列XT200系列XT200系列XT200系列XT200系列</p>
-      <a href="product-1-2.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/XT300tuolaji.png" />
-      <div>XT300系列</div>
-      <p>XT300系列XT300系列XT300系列XT300系列XT300系列XT300系列</p>
-      <a href="product-1-3.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/XT400tuolaji.png" />
-      <div>XT400系列</div>
-      <p>XT400系列XT400系列XT400系列XT400系列XT400系列XT400系列</p>
-      <a href="product-1-4.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<a name="mcat2" id="mcat2"></a>
-<div class="clearfix list-item list-itemr">
-<div class="catpic"><img src="data/procat/product1.jpg" alt="插秧机" /></div>
-<div class="detail">
-<h2>插秧机</h2>
-<div class="intro">雷肯品牌产品有半喂入、全喂入收割机、插秧机、旋耕机等，畅销国内众多的市场</div>
-<div class="slide">
-<div id="carousel-product1" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox">
-  <ul class="item active">
-    <li>
-      <img src="data/products/2ZG-10KZ-2.png" />
-      <div>2ZG-10KZ系列</div>
-      <p>2ZG-10KZ系列2ZG-10KZ系列2ZG-10KZ系列2ZG-10KZ系列</p>
-      <a href="product-2-1.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<a name="mcat3" id="mcat3"></a>
-<div class="clearfix list-item list-iteml">
-<div class="catpic"><img src="data/procat/160316011207tubpea.jpg" alt="土壤耕作机械" /></div>
-<div class="detail">
-<h2>土壤耕作机械</h2>
-<div class="intro">雷肯品牌产品有半喂入、全喂入收割机、插秧机、旋耕机等，畅销国内众多的市场</div>
-<div class="slide">
-<div id="carousel-product0" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox">
-  <ul class="item active">
-    <li>
-      <img src="data/products/160316124940wxrrju.jpg" />
-      <div>LSS-310</div>
-      <p>雷肯LSS-310型深松机</p>
-      <a href="product-3-1.html" target="_blank">查看详情</a>
-    </li>
-    <li>
-      <img src="data/products/160316122707wridfn.jpg" />
-      <div>LSZL-320</div>
-      <p>雷肯LSZL-320型深松整地联合作业机</p>
-      <a href="product-3-2.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<a name="mcat4" id="mcat4"></a>
-<div class="clearfix list-item list-itemr">
-<div class="catpic"><img src="data/procat/160319013831bhorsg.jpg" alt="收割机" /></div>
-<div class="detail">
-<h2>收割机</h2>
-<div class="intro">雷肯动力产品广泛配套于国内外大、中、小型发电机组动力，动力强劲，稳定可靠</div>
-<div class="slide">
-<div id="carousel-product3" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox" style="width:110%">
-  <ul class="item active">
-    <li style="margin:0 1px;">
-      <img src="data/products/4LZ-6shougeji.png" />
-      <div>4LZ-6复合履带式</div>
-      <p>4LZ-6复合履带式收割机4LZ-6复合履带式收割机</p>
-      <a href="product-4-1.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<a name="mcat5" id="mcat5"></a>
-<div class="clearfix list-item list-iteml">
-<div class="catpic"><img src="data/procat/160319015934wcajas.jpg" alt="中型玉米收割机" /></div>
-<div class="detail">
-<h2>收获机</h2>
-<div class="intro">雷肯动力产品船用发动机广泛应用于大中型船只、游艇、渔船的动力配套</div>
-<div class="slide">
-<div id="carousel-product4" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox">
-  <ul class="item active">
-    <li>
-      <img src="data/products/4YZ-MDmaodou.png" />
-      <div>4YZ-MD</div>
-      <p>4YZ-MD型毛豆收获机</p>
-      <a href="product-5-1.html" target="_blank">查看详情</a>
-    </li>
-    <li>
-      <img src="data/products/4JZ-2300lajiao.png" />
-      <div>4JZ-2300</div>
-      <p>4JZ-2300型辣椒收获机</p>
-      <a href="product-5-2.html" target="_blank">查看详情</a>
-    </li>
-    <li>
-      <img src="data/products/9QZ-2600qingsiliao.png" />
-      <div>9QZ-2600</div>
-      <p>9QZ-2600型青饲料收获机</p>
-      <a href="product-5-3.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<a name="mcat6" id="mcat6"></a>
-<div class="clearfix list-item list-itemr">
-<div class="catpic"><img src="data/procat/160319013831bhorsg.jpg" alt="玉米收获机" /></div>
-<div class="detail">
-<h2>玉米收获机</h2>
-<div class="intro">雷肯动力产品广泛配套于国内外大、中、小型发电机组动力，动力强劲，稳定可靠</div>
-<div class="slide">
-<div id="carousel-product3" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox" style="width:110%">
-  <ul class="item active">
-    <li style="margin:0 1px;">
-      <img src="data/products/4YZ-3Ayumi.png" />
-      <div>4YZ-3A型</div>
-      <p>4YZ-3A型玉米联合收获机</p>
-      <a href="product-6-1.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/4YZ-3A1yumi.png" />
-      <div>4YZ-3A1型</div>
-      <p>4YZ-3A1型玉米联合收获机</p>
-      <a href="product-6-2.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/4YZT-4yumi.png" />
-      <div>4YZT-4型</div>
-      <p>4YZT-4型鲜玉米收割机</p>
-      <a href="product-6-3.html" target="_blank">查看详情</a>
-    </li>
-    <li style="margin:0 1px;">
-      <img src="data/products/4YZB-4yumi.png" />
-      <div>4YZB-4型</div>
-      <p>4YZB-4型玉米联合收割机</p>
-      <a href="product-6-4.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<a name="mcat7" id="mcat7"></a>
-<div class="clearfix list-item list-iteml">
-<div class="catpic"><img src="data/procat/160319013831bhorsg.jpg" alt="小型玉米收割机" /></div>
-<div class="detail">
-<h2>无人植保机</h2>
-<div class="intro">雷肯动力产品广泛配套于国内外大、中、小型发电机组动力，动力强劲，稳定可靠</div>
-<div class="slide">
-<div id="carousel-product3" class="carousel slide" data-ride="carousel">
-<div class="carousel-inner" role="listbox">
-  <ul class="item active">
-    <li>
-      <img src="data/products/LK-15zhibaoji.png" />
-      <div>LK-15型</div>
-      <p>LK-15型多旋翼无人植保机</p>
-      <a href="product-7-1.html" target="_blank">查看详情</a>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
 
 <div class="container foot clearfix">
-  <dl>
-    <dt><a href="quality.html">品质技术</a></dt>
-    <dd><a href="quality.html">农装机械</a></dd>
-    <dd><a href="quality.html">动力技术</a></dd>
-    <dd><a href="quality.html">质量体系</a></dd>
-  </dl>
-  <dl>
-    <dt><a href="download.html">下载中心</a></dt>
-    <dd><a href="download.html#about">产品说明书</a></dd>
-    <dd><a href="download.html#media">农装宣传</a></dd>
-    <dd><a href="download.html#line">动力宣传</a></dd>
-  </dl>
-  <dl>
-    <dt><a href="recruit.html">广纳英才</a></dt>
-    <dd><a href="recruit.html">社会招聘</a></dd>
-    <dd><a href="recruit.html">校园招聘</a></dd>
-    <dd><a href="recruit.html">求职申请</a></dd>
-  </dl>
-  <dl>
-    <dt><a href="index.html#contact">联系我们</a></dt>
-    <dd><a href="about.html">农装公司</a></dd>
-    <dd><a href="about.html">动力公司</a></dd>
-    <dd><a href="about.html">研究院</a></dd>
-    <dd><a href="about.html">进出口公司</a></dd>
-  </dl>
-  <div><img src="statics/images/cercle.png" class="go2top" /></div>
+    <div class="foot-content">
+      <p class="foot-left">
+        <span id="foot-logo">锦禾</span>
+        <span id="foot-logo2">TM</span>
+      </p>
+      <ul>
+        <li><a href="quality.html"><strong>Contact Us</strong></a></li>
+        <li><a href="about.html"><strong>About Us</strong></a></li>
+        <li><a href="quality.html"><strong>Technology</strong></a></li>
+        <li><a href="service.html"><strong>Service</strong></a></li>
+        <li><a href="products.html"><strong>Product</strong></a></li>
+      </ul>
+    </div>
+
+    <!-- <div><img src="statics/images/cercle.png" class="go2top" /></div> -->
 </div>
-<div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div>
+
+
+
+<!-- <div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div> -->
 
 
 <script src="statics/js/jquery.min.js"></script>
 <script src="statics/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function(){
+  $(".row-grain").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-grain").show();
+  });
+  $(".row-pepper").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-pepper").show();
+  });
+  $(".row-XT200").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT200").show();
+  });
+  $(".row-XT220").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT220").show();
+  });
+  $(".row-XT250").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT250").show();
+  });
+  $(".row-XT254").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT254").show();
+  });
+  $(".row-XT300").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT300").show();
+  });
+  $(".row-XT400").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT400").show();
+  });
+  $(".row-XT404").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT404").show();
+  });
+  $(".row-XT454").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-XT454").show();
+  });
+  $(".row-3806").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-3806").show();
+  });
+  $(".row-corn").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-corn").show();
+  });
+  $(".row-rice").mousemove(function(){
+    $(".prd-description").hide();
+    $("#dsp-rice").show();
+  });
+
   $(".go2top").click(function() {
     $("html,body").animate({scrollTop: 0},200);
     return false

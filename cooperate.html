@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>中国•锦禾</title>
+  <meta name="Keywords" content="中国•锦禾">
+  <meta name="Description" content="中国•锦禾">
+  <link href="statics/css/common.css" rel="stylesheet">
+  <script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+  <link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+  <script type="text/javascript" src="statics/js/jquery.js"></script>
+  <script src="statics/js/jquery.min.js"></script>
+  <script src="statics/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container topnav" style="height:500px;">
+    <div class="container topnav-background">
+            <img src="statics/images/jinghe-cooperatepage_01.png" alt="background">
+    </div>
+      <div class="container top-part clearfix">
+
+        <div class="logopart">
+          <span id="toplogo">锦禾</span>
+          <span id="toplogo2">TM</span>
+        </div>
+        <ul class="menu" style="padding:10px 0;">
+          <li><a href="index.html">首页</a></li>
+          <li id="productList">
+            <a href="products.html">产品<span class="caret"></span></a>
+            <ul>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">收割机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">辣椒收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">拖拉机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">玉米收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">插秧机</a></li>
+            </ul>
+          </li>
+          <li><a href="service.html">综合服务<span class="caret"></span></a></li>
+          <li><a href="quality.html">品质技术</a></li>
+          <li><a href="cooperate.html">合作共赢<span class="caret"></span></a></li>
+          <li><a href="news.html">最新资讯<span class="caret"></span></a></li>
+          <li><a href="about.html">关于我们<span class="caret"></span></a></li>
+        </ul>
+        <section class="part1">
+          <p class="part1-title">Cooperate</p>
+          <p class="part1-text">
+              Wisdom Agriculture,Intelligent agricultural
+          </p>
+          <a href="#" class="part1-btm">View+</a>
+        </section>
+      </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#productList").mouseover(function(){
+        $(".product").show();
+      });
+
+      $("#productList").mouseout(function(){
+        $(".product").hide();
+      });
+
+      $(".prdlist").children().children('dt').mouseover(function(){
+        $(this).siblings().removeClass('oncur');
+        $(this).addClass('oncur');
+        var id = $(this).attr("date");
+        seeproduct(id);
+      });
+
+      $('.twocode').hover(function(){
+        var _twocode = $('.pubimg').attr('style');
+        if($('.pubimg').attr('style') == 'display:none;'){
+                $('.pubimg').attr('style','display:block;');
+        }else{
+             $('.pubimg').attr('style','display:none;');
+        }
+        return false;
+      });
+     });
+
+    function onload(){
+      $(".prdlist").children().children('dt').first().addClass('oncur');
+      var id = $(".prdlist").children().children('dt').first().attr("date");
+      seeproduct(id);
+    }
+
+    function seeproduct(id){
+      var data = "cid="+id;
+      $.getJSON("ajaxrequest.php",data,function(json){
+      $(".prdcontent").html("");
+      var txtList = "";
+      $.each(json, function(i,item) {
+        txtList +="<div class='prdset'>"+
+                			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+                			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+                			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+      });
+      $(".prdcontent").html(txtList);
+    });
+   }
+</script>
+
+  <div class="container cooperate-container">
+    <div class="container cooperate-part1">
+      <div class="content-part1">
+        <div class="cooperate-left">
+          <p>
+            <span><strong style="color:#FFFFFF;font-size:24px;">Application </strong></span>
+            <span style="color:#FFFFFF;font-size:24px;">Form</span>
+          </p>
+          <p style="color:#FFFFFF;font-size:12px;">The best preparation for tomorrow is doing your best today.</p>
+        </div>
+        <div class="cooperate-right">
+          <a href="cooperate.html"><strong style="color:black;font-size:10px;">VIEW</strong></a>
+          <a href="cooperate.html"><strong style="color:#FFFFFF;font-size:10px;">ALL+</strong></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cooperate-content">
+      <div class="content-part2-top">
+        <p>
+          <span><strong style="color:#FFFFFF;font-size:16px;">Contact Me,</strong></span>
+          <span style="color:#FFFFFF;font-size:14px;">I Will Reply</span>
+        </p>
+        <p style="color:#FFFFFF;font-size:14px;">As Fast As I Can.</p>
+      </div>
+      <div class="content-part2-left">
+        <input type="text" name="company" id="cooperate-name" placeholder="Company Name" />
+        <input type="text" name="emai" id="cooperate-email" placeholder="Email" />
+        <textarea name="message" rows="8" cols="40" placeholder="Message"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="container contact-us">
+      <div class="contact-first">
+          <strong>Contact Us</strong>
+      </div>
+      <div class="contact-content">
+          <ul>
+              <li>
+                  <img src="statics/images/phone.png" alt="tel" />
+                  <p>Telephone:</p>
+                  <p>020-55555555</p>
+              </li>
+              <li>
+                  <img src="statics/images/fax.png" alt="fax" />
+                  <p>fax:</p>
+                  <p>020-55555555</p>
+              </li>
+              <li>
+                  <img style="padding-top:10px;" src="statics/images/email.png" alt="E-mail" />
+                  <p>E-mail:</p>
+                  <p>JingHe@mail.com</p>
+              </li>
+              <li>
+                  <img src="statics/images/location.png" alt="address" />
+                  <p>address:</p>
+                  <p>浙江省浙江省浙江省浙江省浙江省浙江省浙江省</p>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="container foot clearfix">
+    <div class="foot-content">
+      <p class="foot-left">
+        <span id="foot-logo">锦禾</span>
+        <span id="foot-logo2">TM</span>
+      </p>
+      <ul>
+        <li><a href="quality.html"><strong>Contact Us</strong></a></li>
+        <li><a href="quality.html"><strong>About Us</strong></a></li>
+        <li><a href="quality.html"><strong>Technology</strong></a></li>
+        <li><a href="service.html"><strong>Service</strong></a></li>
+        <li><a href="products.html"><strong>Product</strong></a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="color:#999;text-align:center;background-color:#282828;">©浙江锦禾农业机械有限公司</div>
+
+
+  <script src="statics/js/jquery.min.js"></script>
+  <script src="statics/js/bootstrap.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $(".surport1").click (function(){
+      $(".detailContent1").show();
+      $(".detailContent2").hide();
+    });
+
+    $(".surport2").click (function(){
+      $(".detailContent2").show();
+      $(".detailContent1").hide();
+    });
+
+    $(".go2top").click(function() {
+      $("html,body").animate({scrollTop: 0},200);
+      return false
+    });
+  });
+  </script>
+  <div class="hid"></div>
+</body>
+</html>
