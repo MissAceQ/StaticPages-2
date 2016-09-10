@@ -299,12 +299,13 @@ ul,ol,li{list-style:none;}
 .cooperate-container .cooperate-part1 .content-part1 .cooperate-right{position: absolute;right: 0;top: 10px;}
 .cooperate-container .cooperate-content{width: 60%;margin: auto;position: relative;}
 /*.cooperate-container .cooperate-content .content-part2-top{border: 1px solid #fff;}*/
-.cooperate-container .cooperate-content .content-part2-left{border: 1px solid #fff;width: 460px;height: 200px;margin-top: 20px;}
-.cooperate-container .cooperate-content .content-part2-left input{border: none;height: 30px;margin:0 10px 15px 0;}
-.cooperate-container .cooperate-content .content-part2-left #cooperate-name{width: 250px;}
-/*.cooperate-container .cooperate-content .content-part2-left input[placeholder]{color: #FFFFFF !important;}*/
-.cooperate-container .cooperate-content .content-part2-left textarea{width: 430px;height: 140px;font-family: "微软雅黑";}
-
+.cooperate-container .cooperate-content .content-part2-left{width: 460px;height: 200px;margin-top: 20px;display: inline-block;}
+.cooperate-container .cooperate-content .content-part2-left input{border: none;height: 30px;margin:0 10px 15px 0;background-color: #3a3a3a;padding: 0 10px;}
+.cooperate-container .cooperate-content .content-part2-left #cooperate-name{width: 240px;}
+.cooperate-container .cooperate-content .content-part2-left #cooperate-message{width: 440px;height: 140px;border:0;background-color: #3a3a3a;padding: 0 10px;font-family: "微软雅黑";}
+.cooperate-container .cooperate-content .content-part2-right{display: inline-block;position: absolute;width: 200px;height: 140px;top: 100px;}
+.cooperate-container .cooperate-content .content-part2-right p{color: #727272;font-size: 10px;}
+.cooperate-container .cooperate-content .content-part2-right a{display: block;height: 40px;line-height: 40px;width: 150px;text-align: center;background-color: #de3f3f;color: #FFFFFF;margin: 50px 0 0 20px;}
 
 /*
 .carousel-caption{position:absolute;right:15%;bottom:20px;left:15%;z-index:10;padding-top:20px;padding-bottom:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0, 0, 0, .6);}
