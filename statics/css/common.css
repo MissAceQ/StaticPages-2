@@ -307,6 +307,22 @@ ul,ol,li{list-style:none;}
 .cooperate-container .cooperate-content .content-part2-right p{color: #727272;font-size: 10px;}
 .cooperate-container .cooperate-content .content-part2-right a{display: block;height: 40px;line-height: 40px;width: 150px;text-align: center;background-color: #de3f3f;color: #FFFFFF;margin: 50px 0 0 20px;}
 
+/*品质技术页*/
+.quality-container{background-color: #282828;height: 480px;}
+.quality-container .quality-part1{height: 120px;padding-top: 50px;margin-bottom: 40px;background-color: #de3f3f;}
+.quality-container .quality-part1 .content-part1{width: 60%;margin: auto;position: relative;}
+.quality-container .quality-part1 .content-part1 .quality-right{position: absolute;right: 0;top: 10px;}
+.quality-container .quality-part2{width: 60%;margin: auto;}
+.quality-container .quality-part2 .content-part2-top{text-align: center;margin-bottom: 60px;}
+.quality-container .quality-part2 .content-part2-left{display: inline-block;width: 300px;float: left;}
+.quality-container .quality-part2 .content-part2-left p{width: 470px;color: #989898;background-color: #1f1f1f;z-index: 2;font-size: 10px;margin-top: 10px;padding: 20px 15px;opacity: 0.8;}
+.quality-container .quality-part2 .content-part2-right{width: 340px;height: 250px;display: inline-block;margin-left: 50px;background-image: url(../images/quality-02.png);background-size: 100% 100%;}
+.quality-container2{background-color: #de3f3f;}
+.quality-container2 .quality-part3{width: 60%;margin: auto;}
+.quality-container2 .quality-part3 .content-part3-top{text-align: center;height: 80px;padding-top: 40px;}
+.quality-container2 .quality-part3 .content-part3-bottom img{width: 700px;margin-bottom: 60px;}
+
+
 /*
 .carousel-caption{position:absolute;right:15%;bottom:20px;left:15%;z-index:10;padding-top:20px;padding-bottom:20px;color:#fff;text-align:center;text-shadow:0 1px 2px rgba(0, 0, 0, .6);}
 .carousel-caption .btn{text-shadow:none;}
