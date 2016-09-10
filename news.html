@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>中国•锦禾</title>
+  <meta name="Keywords" content="中国•锦禾">
+  <meta name="Description" content="中国•锦禾">
+  <link href="statics/css/common.css" rel="stylesheet">
+  <script type="text/javascript" src="statics/my97/WdatePicker.js"></script>
+  <link rel="stylesheet" href="statics/my97/skin/whyGreen/datepicker.css" />
+  <script type="text/javascript" src="statics/js/jquery.js"></script>
+  <script src="statics/js/jquery.min.js"></script>
+  <script src="statics/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="container topnav" style="height:580px;">
+    <div class="container topnav-background">
+            <img src="statics/images/jinghe-aboutpage_01.png" alt="background">
+    </div>
+      <div class="container top-part clearfix">
+
+        <div class="logopart">
+          <span id="toplogo">锦禾</span>
+          <span id="toplogo2">TM</span>
+        </div>
+        <ul class="menu" style="padding:10px 0;">
+          <li><a href="index.html">首页</a></li>
+          <li id="productList">
+            <a href="products.html">产品<span class="caret"></span></a>
+            <ul>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">收割机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">辣椒收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">拖拉机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">玉米收获机</a></li>
+              <li><a style="padding: 0 10px;" href="products.html#prddetails">插秧机</a></li>
+            </ul>
+          </li>
+          <li><a href="service.html">综合服务<span class="caret"></span></a></li>
+          <li><a href="quality.html">品质技术</a></li>
+          <li><a href="cooperate.html">合作共赢<span class="caret"></span></a></li>
+          <li><a href="news.html">最新资讯<span class="caret"></span></a></li>
+          <li><a href="about.html">关于我们<span class="caret"></span></a></li>
+        </ul>
+        <section class="part1">
+          <p class="part1-title">Information</p>
+          <p class="part1-text">
+              Wisdom Agriculture,Intelligent agricultural
+          </p>
+          <a href="cooperate.html" class="part1-btm">View+</a>
+        </section>
+      </div>
+  </div>
+<script type="text/javascript">
+$(document).ready(function(){
+$("#productList").mouseover(function(){
+$(".product").show();
+});
+$("#productList").mouseout(function(){
+$(".product").hide();
+});
+
+$(".prdlist").children().children('dt').mouseover(function(){
+$(this).siblings().removeClass('oncur');
+$(this).addClass('oncur');
+var id = $(this).attr("date");
+seeproduct(id);
+});
+
+$('.twocode').hover(function(){
+         var _twocode = $('.pubimg').attr('style');
+if($('.pubimg').attr('style') == 'display:none;'){
+        $('.pubimg').attr('style','display:block;');
+}else{
+     $('.pubimg').attr('style','display:none;');
+}
+ return false;
+});
+});
+function onload(){
+$(".prdlist").children().children('dt').first().addClass('oncur');
+var id = $(".prdlist").children().children('dt').first().attr("date");
+seeproduct(id);
+}
+function seeproduct(id){
+var data = "cid="+id;
+$.getJSON("ajaxrequest.php",data,function(json){
+$(".prdcontent").html("");
+var txtList = "";
+$.each(json, function(i,item) {
+  txtList +="<div class='prdset'>"+
+          			"<h4 title='"+item.title+"'>"+item.title+"</h4>"+
+          			"<div class='prdset-model'>型号:<span>"+item.promodel+"</span></div>"+
+          			"<div class='prdimg'><a href='product-"+item.id+".html' title='"+item.title+"'><img src='"+item.picurl+"'></a></div></div>";
+});
+$(".prdcontent").html(txtList);
+});
+}
+</script>
+
+<div class="container info-container">
+  <div class="info-content">
+    <div class="info-top">
+      <span><strong style="font-size:10px;">BUSINESS INFORMATION</strong></span>
+      <hr style="height:1px;width:100px;display:inline-block;border:1px solid #727272;margin-left:200px;" />
+    </div>
+    <div class="info-parts">
+      <div class="info-news-part">
+        <img src="statics/images/news-01.png" alt="news" style="float:left;margin-left:20px;"/>
+        <div class="info-news">
+          <div class="info-title">
+            <span><strong style="font-size:30px;color:#aaa;">01</strong></span>
+            <span style="font-size:10px;color:#aaa;">/Opening Ceremony</span>
+          </div>
+          <div class="info-text">
+            <p>锦禾科技有限公司开工典礼</p>
+            <p style="font-size:10px;color:#727272;margin-top:15px;">
+              2016年县委书记王梁村等县领导对开工表示祝贺，表示锦禾农机整机项目入驻常山后将成为制造业的龙头，
+                可以有效推进产业结构调整，加快转型升级步伐，注入强有力的血液。
+                浙江锦禾科技有限公司农机整机项目预计总投资20亿元，达产后预计年产值50亿元。
+                成品除内销还将出口到越南，缅甸，泰国，新加坡，马来西亚，俄罗斯等国，将为中国农业发展带来一个全新的面貌。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-news-part">
+        <div class="info-news">
+          <div class="info-title">
+            <span><strong style="font-size:30px;color:#aaa;">02</strong></span>
+            <span style="font-size:10px;color:#aaa;">/News Interview</span>
+          </div>
+          <div class="info-text">
+            <p>智慧农机助力农业循环经济发展</p>
+            <p style="font-size:10px;color:#727272;margin-top:15px;">
+              浙江锦禾科技有限公司主要生产山地拖拉机，水稻机，插秧机等高端装备。企业引进的新装备成为农业循环经济发展的中心。
+              发展农业循环经济是农业发展理念，发展模式的一场革命。是转变农业增长的方式，实现可持续发展的迫切需要，
+              而智慧农机无疑成为循环经济发展的重要引擎。
+            </p>
+          </div>
+        </div>
+        <img src="statics/images/news-02.png" alt="news"  style="float:right;margin-right:20px;" />
+      </div>
+
+      <div class="info-news-part">
+        <img src="statics/images/news-03.png" alt="news" style="float:left;margin-left:20px;" />
+        <div class="info-news">
+          <div class="info-title">
+            <span><strong style="font-size:30px;color:#aaa;">03</strong></span>
+            <span style="font-size:10px;color:#aaa;">/Signing Ceremony</span>
+          </div>
+          <div class="info-text">
+            <p>入园签约仪式董事长赵雪君受访</p>
+            <p style="font-size:10px;color:#727272;margin-top:15px;">
+              锦禾农业科技有限公司董事长 赵雪君在签约仪式中称企业不止做高效不等距插秧机，
+              引进外蒙古的羊粪肥料，并且引进国际上最出名的越光水稻，销售可达上百块一斤，
+              比国内几块钱一斤的可以翻好几倍。提升种植的品牌效应和质量。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-news-part">
+        <div class="info-news">
+          <div class="info-title">
+            <span><strong style="font-size:30px;color:#aaa;">04</strong></span>
+            <span style="font-size:10px;color:#aaa;">/Demonstrations</span>
+          </div>
+          <div class="info-text">
+            <p>插秧机观摩</p>
+            <p style="font-size:10px;color:#727272;margin-top:15px;">
+              观摩会上这台锦禾农业科技有限公司的插秧机用了不到15分钟的时间就将半亩地披上了绿色的外衣，
+              二十多名在场的中粮大户观摩了新型机械化插秧的全过程，并且专业人员还给予了详细的介绍。
+              高光效不等距插秧机改变了原有的井字形插秧模式，提高了光合作用和通风效果，减少了化肥等材料的使用，
+              增大了粮食的产量。
+
+            </p>
+          </div>
+        </div>
+        <img src="statics/images/news-04.png" alt="news" style="float:right;margin-right:20px;"  />
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="container contact-us">
+    <div class="contact-first">
+        <strong>Contact Us</strong>
+    </div>
+    <div class="contact-content">
+        <ul>
+            <li>
+                <img src="statics/images/phone.png" alt="tel" />
+                <p>Telephone:</p>
+                <p>020-55555555</p>
+            </li>
+            <li>
+                <img src="statics/images/fax.png" alt="fax" />
+                <p>fax:</p>
+                <p>020-55555555</p>
+            </li>
+            <li>
+                <img style="padding-top:10px;" src="statics/images/email.png" alt="E-mail" />
+                <p>E-mail:</p>
+                <p>JingHe@mail.com</p>
+            </li>
+            <li>
+                <img src="statics/images/location.png" alt="address" />
+                <p>address:</p>
+                <p>浙江省衢州市绿色产业集聚区常山片区</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container foot clearfix">
+  <div class="foot-content">
+    <p class="foot-left">
+      <span id="foot-logo">锦禾</span>
+      <span id="foot-logo2">TM</span>
+    </p>
+    <ul>
+      <li><a href="about.html"><strong>Contact Us</strong></a></li>
+      <li><a href="about.html"><strong>About Us</strong></a></li>
+      <li><a href="quality.html"><strong>Technology</strong></a></li>
+      <li><a href="service.html"><strong>Service</strong></a></li>
+      <li><a href="products.html"><strong>Product</strong></a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- <div style="color:#999;text-align:center;background-color:#282828;">技术支持 © <a href="http://www.luopan.net/" target="_blank" style="color:#999;">罗盘科技</a></div> -->
+
+
+<script src="statics/js/jquery.min.js"></script>
+<script src="statics/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".go2top").click(function() {
+    $("html,body").animate({scrollTop: 0},200);
+    return false
+  });
+});
+</script>
+<div class="hid"></div>
+</body></html>

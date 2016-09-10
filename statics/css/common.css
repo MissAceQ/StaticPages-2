@@ -3,7 +3,7 @@
 *:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
 
 html{font-family:"微软雅黑";-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
-body{ font-family:"微软雅黑";font-size:14px;line-height:1.42857143;background:#333;}
+body{ font-family:"微软雅黑";font-size:14px;line-height:1.42857143;background:#333;overflow-x: hidden;}
 img{border:0;vertical-align:middle;}
 a:link,a:visited{text-decoration:none;}
 a:hover,a:active{text-decoration:none;}
@@ -321,6 +321,24 @@ ul,ol,li{list-style:none;}
 .quality-container2 .quality-part3{width: 60%;margin: auto;}
 .quality-container2 .quality-part3 .content-part3-top{text-align: center;height: 80px;padding-top: 40px;}
 .quality-container2 .quality-part3 .content-part3-bottom img{width: 700px;margin-bottom: 60px;}
+
+/*关于我们页*/
+.about-content{background-color: #de3f3f;height: 370px;position: relative;}
+.about-content .about-part2-top{width: 60%;margin: auto;text-align: center;}
+.about-content .about-part2-pic{position: absolute;z-index: 2;left: 50%;margin-left: -315px;}
+.about-content2{background-image: url(../images/about-building.png);background-size: 100%;position: relative;z-index: -1;height: 670px;}
+.about-content2 .about-part3-pic{height: 210px;width: 680px;position: absolute;top:50%;margin-top: -135px;}
+.about-content2 .about-part3-text{background-color: #de3f3f;color: #FFFFFF;position: absolute;padding: 50px;height: 210px;width: 720px;top: 290px;right: 0;}
+.about-content2 .about-part3-content{width: 500px;position: absolute;bottom: 50px;left: 270px;}
+
+/*最新资讯页*/
+.info-container{background-color: #e8e4e4;position: relative;height: 950px;}
+.info-container .info-content{width: 60%;margin: auto;}
+.info-container .info-content .info-top{height: 60px;line-height: 60px;text-align: center;}
+.info-container .info-content .info-parts{margin: auto;}
+.info-parts .info-news-part{height: 200px;margin-bottom: 20px;}
+.info-parts .info-news-part img{height: 180px;width: 275px;position: relative;display: inline-block;margin-top: 10px;}
+.info-parts .info-news-part .info-news{width: 320px;display: inline-block;margin: 20px 50px;}
 
 
 /*
